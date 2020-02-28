@@ -1,10 +1,14 @@
 import pandas,json
 
-
 print("please drag your file here") 
-input1 = input()
+inp = input()
 
-data = pandas.read_excel(input1, skiprows = 54, keep_default_na = False, usecols = ['Description', 'Additional Instructions'])
+
+if inp[0] == '"':
+    inp = inp[1:len(inp)-1]
+
+
+data = pandas.read_excel(inp, skiprows = 54, keep_default_na = False, usecols = ['Description', 'Additional Instructions'])
 
 tempCategories = data.iloc[:,0]
 tempDescriptions = data.iloc[:,1]
@@ -41,3 +45,5 @@ for i in range(len(categories)-1):
 y = json.dumps(finalResult)
 
 print (y)  
+
+k=input("press close to exit") 
