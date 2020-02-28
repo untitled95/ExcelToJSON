@@ -1,4 +1,4 @@
-import pandas,json
+import pandas,json,pyperclip
 
 print("please drag your file here") 
 inp = input()
@@ -44,6 +44,7 @@ for i in range(len(categories)-1):
 
 y = json.dumps(finalResult)
 
-print (y)  
+pyperclip.copy(y)
+print("Successfully converted to JSON and copied") 
 
 k=input("press close to exit") 
